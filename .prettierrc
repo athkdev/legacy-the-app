@@ -1,0 +1,44 @@
+{
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "arrowParens": "always",
+    "printWidth": 80,
+    "tabWidth": 4,
+    "useTabs": true,
+    "endOfLine": "lf",
+    "bracketSameLine": false,
+    "jsxSingleQuote": false,
+    "quoteProps": "as-needed",
+    "parser": "typescript",
+    "htmlWhitespaceSensitivity": "css",
+    "embeddedLanguageFormatting": "auto",
+    "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx", "*.mjs", "*.cjs"],
+      "options": {
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": ["*.json", "*.jsonc"],
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": ["*.css", "*.scss", "*.less"],
+      "options": {
+        "parser": "css"
+      }
+    },
+    {
+      "files": ["*.md", "*.mdx"],
+      "options": {
+        "parser": "markdown"
+      }
+    }
+  ]
+  }
