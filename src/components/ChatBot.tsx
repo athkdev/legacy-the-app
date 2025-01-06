@@ -117,10 +117,18 @@ export default function ChatBot(): JSX.Element {
 				/>
 				<button
 					onClick={() => handleSubmit(searchQuery)}
-					className={`rounded-full p-2 font-bold ${
-						searchQuery?.length <= 0
-							? 'bg-stone-200'
-							: 'bg-green-700 text-white'
+					// className={`rounded-full p-2 font-bold ${
+					// 	searchQuery?.length <= 0
+					// 		? 'bg-stone-200 hidden'
+					// 		: 'bg-green-700 text-white inline-block transition'
+					// }`}
+					className={`rounded-full p-2 font-bold transform transition-all duration-300 ease-out
+						${
+							searchQuery?.length <= 0
+								? 'opacity-0 translate-y-2 scale-95 pointer-events-none'
+								: 'opacity-100 translate-y-0 scale-100'
+						} ${
+						loading ? 'bg-stone-200' : 'bg-green-700 text-white'
 					}`}
 					disabled={searchQuery?.length === 0}
 				>
