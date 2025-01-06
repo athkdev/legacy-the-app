@@ -3,9 +3,9 @@
 import { JSX, useState } from 'react'
 import Spinner from './Spinner'
 
-interface ChatBotProps {
-	className?: string
-}
+// interface ChatBotProps {
+// 	className?: string
+// }
 
 enum Message {
 	QUERY,
@@ -17,7 +17,7 @@ interface LogNode {
 	content: string
 }
 
-export default function ChatBot({ className }: ChatBotProps): JSX.Element {
+export default function ChatBot(): JSX.Element {
 	const [loading, setLoading] = useState<boolean>(false)
 	const [searchQuery, setSearchQuery] = useState<string>('')
 	const [log, setLog] = useState<LogNode[]>([])
@@ -45,34 +45,34 @@ export default function ChatBot({ className }: ChatBotProps): JSX.Element {
 		setLoading(false)
 	}
 
-	function hydrate() {
-		const logs: LogNode[] = [
-			{ logType: Message.QUERY, content: "What's up? 1 (SENT)" },
-			{
-				logType: Message.RESPONSE,
-				content: 'Nothing much yo 1 (RECEIVED)',
-			},
-			{ logType: Message.QUERY, content: "What's up? 2 (SENT)" },
-			{
-				logType: Message.RESPONSE,
-				content: 'Nothing much yo 2 (RECEIVED)',
-			},
-			{ logType: Message.QUERY, content: "What's up? 3 (SENT)" },
-			{
-				logType: Message.RESPONSE,
-				content: 'Nothing much yo 3 (RECEIVED)',
-			},
-		]
+	// function hydrate() {
+	// 	const logs: LogNode[] = [
+	// 		{ logType: Message.QUERY, content: "What's up? 1 (SENT)" },
+	// 		{
+	// 			logType: Message.RESPONSE,
+	// 			content: 'Nothing much yo 1 (RECEIVED)',
+	// 		},
+	// 		{ logType: Message.QUERY, content: "What's up? 2 (SENT)" },
+	// 		{
+	// 			logType: Message.RESPONSE,
+	// 			content: 'Nothing much yo 2 (RECEIVED)',
+	// 		},
+	// 		{ logType: Message.QUERY, content: "What's up? 3 (SENT)" },
+	// 		{
+	// 			logType: Message.RESPONSE,
+	// 			content: 'Nothing much yo 3 (RECEIVED)',
+	// 		},
+	// 	]
 
-		setLog(logs)
-	}
+	// 	setLog(logs)
+	// }
 
 	return (
 		<div className="w-1/2 mx-auto p-2">
 			{log?.length === 0 ? (
 				<div className="h-4/5 text-white rounded border border-stone-700 p-4 flex justify-center items-center">
 					<p className="mx-auto">
-						Ask LegacyTheApp anything you'd like to help your
+						Ask LegacyTheApp anything you&apos;d like to help your
 						patients!
 					</p>
 				</div>

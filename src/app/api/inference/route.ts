@@ -1,10 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { type NextRequest } from 'next/server'
 import OpenAI from 'openai'
-
-type ResponseData = {
-	message: string
-}
 
 export async function GET(request: NextRequest) {
 	const openai = new OpenAI({
@@ -16,7 +11,7 @@ export async function GET(request: NextRequest) {
 	const searchParams = request.nextUrl.searchParams
 	const query = searchParams.get('query')
 
-	const response: any = await openai.chat.completions.create({
+	const response = await openai.chat.completions.create({
 		model: 'gpt-4o',
 		messages: [
 			{
