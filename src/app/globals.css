@@ -26,3 +26,8 @@ body {
 .text-code {
 	font-family: 'Geist Mono', serif;
 }
+
+*::selection {
+	color: black;
+	background: white;
+}
