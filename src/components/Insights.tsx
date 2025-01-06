@@ -13,7 +13,9 @@ export default function Insights(): JSX.Element {
 	// 	console.log(query)
 	// }
 
+	const [query, setQuery] = useState<string>('')
 	const [records, setRecords] = useState<TRecord[]>([])
+	const [filteredRecords, setFilteredRecords] = useState<TRecord[]>([])
 	const [isFetching, setIsFetching] = useState<boolean>(false)
 
 	async function fetchRecords() {
@@ -25,13 +27,13 @@ export default function Insights(): JSX.Element {
 		})
 		const data = await response.json()
 
-		console.log(data)
-		setRecords(
-			data.map((record: any, index: number) => ({
-				id: index + 1,
-				...record,
-			}))
-		)
+		const _tmp = data.map((record: any, index: number) => ({
+			id: index + 1,
+			...record,
+		}))
+
+		setRecords(_tmp)
+		setFilteredRecords(_tmp)
 
 		setIsFetching(false)
 	}
@@ -39,6 +41,28 @@ export default function Insights(): JSX.Element {
 	useEffect(() => {
 		fetchRecords()
 	}, [])
+
+	function handleFilter(q: string) {
+		setQuery(q)
+	}
+
+	useEffect(() => {
+		const lazyTimeout = setTimeout(() => {
+			setFilteredRecords(() =>
+				records.filter(
+					(record) =>
+						record.context
+							.toLowerCase()
+							.includes(query.toLowerCase()) ||
+						record.response
+							.toLowerCase()
+							.includes(query.toLowerCase())
+				)
+			)
+		}, 300)
+
+		return () => clearTimeout(lazyTimeout) // Clear timeout on query change
+	}, [query, records])
 
 	return (
 		<div className="w-1/2 mx-auto p-2 text-white">
@@ -48,9 +72,10 @@ export default function Insights(): JSX.Element {
 				type="text"
 				placeholder="Search for similar insights"
 				className="p-3 px-5 rounded-full outline-none min-w-full mt-5 text-black"
+				onChange={(e) => handleFilter(e.target.value)}
 			/>
 
-			<RecordsTable records={records} loading={isFetching} />
+			<RecordsTable records={filteredRecords} loading={isFetching} />
 		</div>
 	)
 }
