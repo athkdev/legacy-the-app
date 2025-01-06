@@ -43,7 +43,7 @@ export default function Home(): JSX.Element {
 				</div>
 			</div>
 
-			<section className={`min-h-screen flex justify-between text-black`}>
+			<section className={`h-screen flex justify-between text-black`}>
 				{currentPage === Page.CHATBOT ? (
 					<ChatBot className="" />
 				) : (
