@@ -69,35 +69,44 @@ export default function ChatBot({ className }: ChatBotProps): JSX.Element {
 
 	return (
 		<div className="w-1/2 mx-auto p-2">
-			<div className="h-4/5 text-white rounded border border-stone-700 p-4 overflow-auto">
-				{log?.map((l: LogNode, i: number) => {
-					const isQuery = l.logType === Message.QUERY
+			{log?.length === 0 ? (
+				<div className="h-4/5 text-white rounded border border-stone-700 p-4 flex justify-center items-center">
+					<p className="mx-auto">
+						Ask LegacyTheApp anything you'd like to help your
+						patients!
+					</p>
+				</div>
+			) : (
+				<div className="h-4/5 text-white rounded border border-stone-700 p-4 overflow-auto">
+					{log?.map((l: LogNode, i: number) => {
+						const isQuery = l.logType === Message.QUERY
 
-					return (
-						<>
-							<div
-								key={i}
-								className={`my-4 ${
-									isQuery
-										? 'text-right text-black'
-										: 'text-left'
-								}`}
-							>
-								<span
-									className={`${
-										isQuery ? 'bg-neutral-300' : ''
-									} p-2 rounded`}
+						return (
+							<>
+								<div
+									key={i}
+									className={`my-4 ${
+										isQuery
+											? 'text-right text-black'
+											: 'text-left'
+									}`}
 								>
-									{l.content}
-								</span>
-							</div>
-							{!isQuery ? (
-								<hr className="border-stone-800" />
-							) : null}
-						</>
-					)
-				})}
-			</div>
+									<span
+										className={`${
+											isQuery ? 'bg-neutral-300' : ''
+										} p-2 rounded`}
+									>
+										{l.content}
+									</span>
+								</div>
+								{!isQuery ? (
+									<hr className="border-stone-800" />
+								) : null}
+							</>
+						)
+					})}
+				</div>
+			)}
 
 			<div className="flex gap-5 mt-4">
 				<textarea
