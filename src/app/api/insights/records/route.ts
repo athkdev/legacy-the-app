@@ -24,17 +24,24 @@ export async function POST(request: NextRequest) {
         FROM records r
       `
 		} else {
-			const placeholders = topics
-				.map((_: any, i: number) => `$${i + 1}`)
-				.join(', ')
+			const likeClauses = topics
+				.map(
+					(_: any, i: number) =>
+						`REGEXP_REPLACE(t.name, '\\[|\\]|''', '', '') LIKE $${
+							i + 1
+						}`
+				)
+				.join(' OR ')
+
 			query = `
         SELECT DISTINCT r.context, r.response
         FROM records r
         JOIN record_topics rt ON r.id = rt.record_id
         JOIN topics t ON rt.topic_id = t.id
-        WHERE t.name IN (${placeholders})
+        WHERE ${likeClauses}
       `
-			values = topics
+
+			values = topics.map((topic: string) => `%${topic}%`)
 		}
 
 		const result = await client.query(query, values)
