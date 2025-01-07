@@ -72,6 +72,7 @@ export default function Insights(): JSX.Element {
 				selectedTopics={selectedTopics}
 			/>
 
+			<p className="mt-4 ">{filteredRecords.length} records found.</p>
 			<RecordsTable records={filteredRecords} loading={isFetching} />
 		</div>
 	)
