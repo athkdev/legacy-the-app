@@ -11,7 +11,7 @@ interface RecordsTableProps {
 
 const RecordsTable: React.FC<RecordsTableProps> = ({ records, loading }) => {
 	return (
-		<div className="overflow-auto h-3/4 mt-4 rounded overflow-x-hidden">
+		<div className="overflow-auto h-3/4 mt-4 rounded overflow-x-auto lg:overflow-x-hidden">
 			{loading ? (
 				<div className="flex gap-5">
 					<p>Fetching records, please wait</p>

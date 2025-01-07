@@ -59,7 +59,7 @@ export default function Insights(): JSX.Element {
 	}, [query, records])
 
 	return (
-		<div className="w-1/2 mx-auto p-2 text-white">
+		<div className="w-full lg:w-1/2 mx-auto p-2 text-white ">
 			<input
 				type="text"
 				placeholder="Search for similar insights"

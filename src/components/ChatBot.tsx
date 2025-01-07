@@ -1,6 +1,6 @@
 'use client'
 
-import { JSX, useState } from 'react'
+import { Fragment, JSX, useState } from 'react'
 import Spinner from './Spinner'
 
 // interface ChatBotProps {
@@ -68,7 +68,7 @@ export default function ChatBot(): JSX.Element {
 	// }
 
 	return (
-		<div className="w-1/2 mx-auto p-2">
+		<div className="w-full lg:w-1/2 mx-auto p-2">
 			{log?.length === 0 ? (
 				<div className="h-4/5 text-white rounded border border-stone-700 p-4 flex justify-center items-center">
 					<p className="mx-auto">
@@ -82,9 +82,8 @@ export default function ChatBot(): JSX.Element {
 						const isQuery = l.logType === Message.QUERY
 
 						return (
-							<>
+							<Fragment key={i}>
 								<div
-									key={i}
 									className={`my-4 ${
 										isQuery
 											? 'text-right text-black'
@@ -102,7 +101,7 @@ export default function ChatBot(): JSX.Element {
 								{!isQuery ? (
 									<hr className="border-stone-800" />
 								) : null}
-							</>
+							</Fragment>
 						)
 					})}
 				</div>
