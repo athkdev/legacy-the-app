@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mental Health Counseling AI Chatbot
 
-## Getting Started
+A fullstack AI-powered application designed to assist mental health counselors in real-time by providing actionable insights and guided chatbot support during live sessions.
 
-First, run the development server:
+[Live Demo](https://legacy-project.athk.dev/app)
+
+🧩 Features
+
+    Conversational AI powered by OpenAI, trained to emulate empathetic counselor responses.
+    NLP Insights: Extracted and analyzed insights from over 3,000 counselor-client session transcripts.
+    Intelligent Filtering & Pagination: Stored insights in a PostgreSQL database with robust querying for ease of access.
+    Frontend: Built using React, Next.js, and TypeScript with a responsive, accessible UI.
+    Backend: Node.js and Python-powered services for NLP processing and API integration.
+
+🚀 Tech Stack
+
+    Frontend: React, Next.js, TypeScript
+    Backend: Node.js, Python
+    Database: PostgreSQL
+    AI Integration: OpenAI GPT-based models
+    Infrastructure: AWS
+
+📦 Installation
 
 ```bash
+git clone https://github.com/athkdev/legacytheapp.git
+cd legacytheapp
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📁 Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+/pages         → Next.js page routes
+/components    → Reusable React components
+/utils         → Utility functions (API handlers, NLP parsers)
+/scripts       → Data preprocessing and analysis
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🧠 AI & NLP
 
-## Learn More
+- [x] Preprocessed 3,000+ real-world counseling transcripts.
+- [x] Extracted key therapeutic cues and patterns.
+- [x] Integrated with OpenAI to create a chatbot that mimics effective counseling strategies.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📍 Use Case
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This tool is intended to augment—not replace—human counselors by improving accessibility, decision-making, and real-time emotional support.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🛡️ Disclaimer
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This app is a prototype and should not be used as a substitute for professional mental health services.
+
+
+📫 Contact
+
+Built by Atharva — contributions and feedback are welcome!
